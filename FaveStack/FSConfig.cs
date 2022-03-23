@@ -1,4 +1,4 @@
-﻿using FavStack.Utils;
+﻿using FaveStack.Utils;
 using System.Collections.Generic;
 using System.IO;
 

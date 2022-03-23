@@ -12,7 +12,7 @@ using VRC.Core;
 
 namespace FaveStack
 {
-    [BepInPlugin("me.wtfblaze.favestack", "FaveStack", "1.0.0")]
+    [BepInPlugin("com.github.wtfblaze.favestack", "FaveStack", "1.0.0")]
     public class Main : BasePlugin
     {
         public static ManualLogSource logger;

@@ -38,13 +38,9 @@ namespace FaveStack.Utils
         }
     }
 
-    [CompilerGenerated]
     [Embedded]
-    public sealed class EmbeddedAttribute : Attribute
-    {
-    }
+    public sealed class EmbeddedAttribute : Attribute {}
 
-    [CompilerGenerated]
     [Embedded]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Event | AttributeTargets.Parameter | AttributeTargets.ReturnValue | AttributeTargets.GenericParameter, AllowMultiple = false, Inherited = false)]
     public sealed class NullableAttribute : Attribute
@@ -65,7 +61,6 @@ namespace FaveStack.Utils
         }
     }
 
-    [CompilerGenerated]
     [Embedded]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Delegate, AllowMultiple = false, Inherited = false)]
     class NullableContextAttribute : Attribute
