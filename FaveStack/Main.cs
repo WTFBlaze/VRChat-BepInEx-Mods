@@ -5,6 +5,7 @@ using FaveStack.Utils;
 using System;
 using System.Collections;
 using System.IO;
+using System.Net;
 using UnhollowerRuntimeLib;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,10 +13,9 @@ using VRC.Core;
 
 namespace FaveStack
 {
-    [BepInPlugin("com.github.wtfblaze.favestack", "FaveStack", "1.0.0")]
+    [BepInPlugin("com.github.wtfblaze.favestack", "FaveStack", "1.0.1")]
     public class Main : BasePlugin
     {
-        public static ManualLogSource logger;
         public static string MainModFolder = Directory.GetParent(Application.dataPath) + "\\WTFBlaze";
         private Transform avatarScreen;
         private GameObject favoriteList;
@@ -26,18 +26,40 @@ namespace FaveStack
 
         public override void Load()
         {
-            logger = Log;
             ClassInjector.RegisterTypeInIl2Cpp<EnableDisableListener>();
+            if (!File.Exists("Newtonsoft.Json.dll"))
+            {
+                SendLog("Newtonsoft.Json dependency not found! Downloading from the internet...", ConsoleColor.Yellow);
+                try
+                {
+                    WebClient wc = new();
+                    var bytes = wc.DownloadData("https://cdn.wtfblaze.com/mods/dependency/Newtonsoft.Json.dll");
+                    File.Create("Newtonsoft.Json.dll").Close();
+                    File.WriteAllBytes("Newtonsoft.Json.dll", bytes);
+                    SendLog("Successfully downloaded Newtonsoft.Json! FaveStack will load next time you start the game!", ConsoleColor.Green);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    SendLog("Error downloading Newtonsoft.Json! | Error Message: " + ex.Message, ConsoleColor.Red);
+                }
+            }
             if (!Directory.Exists(MainModFolder))
             {
                 Directory.CreateDirectory(MainModFolder);
             }
-            if (!Directory.Exists(MainModFolder + "\\FavStack"))
+            if (!Directory.Exists(MainModFolder + "\\FaveStack"))
             {
-                Directory.CreateDirectory(MainModFolder + "\\FavStack");
+                Directory.CreateDirectory(MainModFolder + "\\FaveStack");
             }
             FSConfig.Load();
             WaitForSM().Start();
+        }
+
+        public static void SendLog(string msg, ConsoleColor col)
+        {
+            ConsoleManager.SetConsoleColor(col);
+            ConsoleManager.StandardOutStream.WriteLine("[FaveStack] " + msg);
         }
 
         private void InitializeUI()
@@ -60,9 +82,9 @@ namespace FaveStack
                 uiVrcList.field_Protected_Dictionary_2_Int32_List_1_ApiModel_0.Clear();
                 uiVrcList.pickerPrefab.transform.Find("TitleText").GetComponent<Text>().supportRichText = true;
                 favoriteList.SetActive(true);
-                favoriteList.name = "WTFBlaze's FavStack List";
+                favoriteList.name = "WTFBlaze's FaveStack List";
                 textLabel.supportRichText = true;
-                textLabel.text = "FavStack - [0]";
+                textLabel.text = "FaveStack - [0]";
 
                 favBtn = UnityEngine.Object.Instantiate(
                     avatarScreen.Find("Change Button").gameObject,
@@ -83,7 +105,7 @@ namespace FaveStack
                     }
                 }));
 
-                logger.LogInfo("Successfully created FavStack List!");
+                SendLog("Successfully created FaveStack List!", ConsoleColor.Green);
                 var listener = avatarScreen.gameObject.AddComponent<EnableDisableListener>();
                 listener.OnEnabled += () =>
                 {
@@ -93,7 +115,7 @@ namespace FaveStack
             }
             catch (Exception ex)
             {
-                logger.LogError("Failed to create FavStack list! | Error Message: " + ex.Message);
+                SendLog("Failed to create FaveStack list! | Error Message: " + ex.Message, ConsoleColor.Red);
             }
         }
 
@@ -134,11 +156,11 @@ namespace FaveStack
                 Il2CppSystem.Collections.Generic.List<ApiAvatar> AvatarList = new();
                 FSConfig.Instance.list.ForEach(avi => AvatarList.Add(avi.ToApiAvatar()));
                 RenderElement(AvatarList);
-                textLabel.text = $"FavStack - [{AvatarList.Count}]";
+                textLabel.text = $"FaveStack - [{AvatarList.Count}]";
             }
             catch (Exception ex)
             {
-                logger.LogError("Failed to Refresh FavStack list! | Error Message: " + ex.Message);
+                SendLog("Failed to Refresh FaveStack list! | Error Message: " + ex.Message, ConsoleColor.Red);
             }
         }
     }

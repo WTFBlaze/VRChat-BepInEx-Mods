@@ -1,4 +1,5 @@
 ﻿using FaveStack.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -11,16 +12,16 @@ namespace FaveStack
         public static FSConfig Instance;
         public static void Load()
         {
-            if (!File.Exists("Blaz"))
+            if (!File.Exists(Main.MainModFolder + "\\FaveStack\\Config.json"))
             {
-                JsonManager.WriteToJsonFile(Main.MainModFolder + "\\FavStack\\Config.json", new FSConfig());
+                JsonManager.WriteToJsonFile(Main.MainModFolder + "\\FaveStack\\Config.json", new FSConfig());
             }
-            Instance = JsonManager.ReadFromJsonFile<FSConfig>(Main.MainModFolder + "\\FavStack\\Config.json");
+            Instance = JsonManager.ReadFromJsonFile<FSConfig>(Main.MainModFolder + "\\FaveStack\\Config.json");
         }
 
         public void Save()
         {
-            JsonManager.WriteToJsonFile(Main.MainModFolder + "\\FavStack\\Config.json", Instance);
+            JsonManager.WriteToJsonFile(Main.MainModFolder + "\\FaveStack\\Config.json", Instance);
         }
 
         public class FavoriteObject
