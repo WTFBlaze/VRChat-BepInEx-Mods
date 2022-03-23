@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.props" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.props')" />
+  <Import Project="..\packages\ILMerge.3.0.29\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,6 +15,8 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <LangVersion>latest</LangVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,24 +38,31 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Core">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\core\BepInEx.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.IL2CPP">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\core\BepInEx.IL2CPP.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2Cppmscorlib">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\Il2Cppmscorlib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\Il2CppSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Core">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\Il2CppSystem.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,54 +74,71 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnhollowerBaseLib">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\core\UnhollowerBaseLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnhollowerRuntimeLib">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\core\UnhollowerRuntimeLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\UnityEngine.UIElementsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRC.UI.Core">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRC.UI.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRC.UI.Elements">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRC.UI.Elements.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRC.UI.Shared">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRC.UI.Shared.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRC.Utility">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRC.Utility.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRCCore-Editor">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRCCore-Editor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRCCore-Standalone">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRCCore-Standalone.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRCSDK2">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRCSDK2.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRCSDK3">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRCSDK3.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VRCSDKBase">
       <HintPath>F:\Steam\steamapps\common\VRChat\BepInEx\unhollowed\VRCSDKBase.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +151,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ILMerge.props" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ILMergeOrder.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.29\build\ILMerge.props'))" />
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.props'))" />
+    <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets')" />
 </Project>
