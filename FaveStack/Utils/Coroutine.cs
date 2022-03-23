@@ -5,7 +5,7 @@ using UnhollowerBaseLib.Attributes;
 using UnhollowerRuntimeLib;
 using UnityEngine;
 
-namespace FavStack.Utils
+namespace FaveStack.Utils
 {
     public static class Coroutine
     {

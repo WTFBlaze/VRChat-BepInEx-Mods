@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace FavStack
+namespace FaveStack
 {
     public class FSConfig
     {

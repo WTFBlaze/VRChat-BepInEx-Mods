@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using VRC.Core;
 
-namespace FavStack.Utils
+namespace FaveStack.Utils
 {
     public static class Extensions
     {

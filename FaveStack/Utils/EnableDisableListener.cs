@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using UnhollowerBaseLib.Attributes;
 using UnityEngine;
 
-namespace FavStack.Utils
+namespace FaveStack.Utils
 {
     [NullableContext(2)]
     [Nullable(0)]

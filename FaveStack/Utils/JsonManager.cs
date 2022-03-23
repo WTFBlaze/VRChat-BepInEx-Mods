@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 
-namespace FavStack.Utils
+namespace FaveStack.Utils
 {
     public static class JsonManager
     {

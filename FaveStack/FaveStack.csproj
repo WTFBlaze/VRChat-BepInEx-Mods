@@ -9,8 +9,8 @@
     <ProjectGuid>{21B5DBE7-2903-47F2-B7E8-171BED7EA758}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FavStack</RootNamespace>
-    <AssemblyName>FavStack</AssemblyName>
+    <RootNamespace>FaveStack</RootNamespace>
+    <AssemblyName>FaveStack</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

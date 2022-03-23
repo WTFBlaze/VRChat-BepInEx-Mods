@@ -1,7 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.IL2CPP;
 using BepInEx.Logging;
-using FavStack.Utils;
+using FaveStack.Utils;
 using System;
 using System.Collections;
 using System.IO;
@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRC.Core;
 
-namespace FavStack
+namespace FaveStack
 {
     [BepInPlugin("me.wtfblaze.favestack", "FaveStack", "1.0.0")]
     public class Main : BasePlugin
